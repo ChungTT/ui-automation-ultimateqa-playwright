@@ -1,20 +1,23 @@
-# Use the official Playwright base image (includes Node.js, browsers, and drivers)
-FROM mcr.microsoft.com/playwright:v1.47.2-jammy
+# Playwright base image: comes with Node.js + browsers + system dependencies
+FROM mcr.microsoft.com/playwright:v1.54.2-jammy
 
-# Set the working directory inside the container
+# Application working directory
 WORKDIR /app
 
-# Copy package definition files first to leverage Docker build cache
+# Prevent npm postinstall from downloading browsers again
+ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
+
+# Leverage Docker cache: copy package files first
 COPY package*.json ./
 
-# Install dependencies (prefer clean install, fallback to install if lockfile is missing)
+# Install dependencies (use ci if lockfile exists, fallback to install)
 RUN npm ci || npm install
 
-# Copy the rest of the application source code
+# Copy the rest of the source code
 COPY . .
 
-# Install Playwright browsers and required system dependencies
-RUN npx playwright install --with-deps
+# Do NOT run: npx playwright install --with-deps
+# (the base image already includes all required browsers + deps)
 
 # Default command: run tests
 CMD ["npm", "test"]

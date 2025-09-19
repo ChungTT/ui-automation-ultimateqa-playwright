@@ -13,7 +13,7 @@
   "license": "ISC",
   "description": "UI automation for UltimateQA simple elements page using Playwright + TypeScript",
   "devDependencies": {
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "1.54.2",
     "@types/node": "^24.2.1"
   }
 }

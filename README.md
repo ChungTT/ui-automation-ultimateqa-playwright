@@ -1,39 +1,34 @@
-
-
-
 # UI Automation: UltimateQA (Playwright + TypeScript)
 
 ## Scope
-Trang: https://ultimateqa.com/simple-html-elements-for-automation/
+Target page: [Simple HTML Elements for Automation](https://ultimateqa.com/simple-html-elements-for-automation/)
 
-**Bảng "HTML Table with no id":**
-1) Title phải Title Case; giới từ/articles có thể lowercase (trừ từ đầu/cuối).
-2) Tất cả Salary ≥ $100,000.
-3) Không có Work = "Manual".
+**Table: "HTML Table with no id"**
+1. Titles must follow **Title Case**; prepositions/articles may remain lowercase (except first/last word).
+2. All **Salary** values must be ≥ $100,000.
+3. No record with **Work = "Manual"**.
 
-**Form "Email Me!":**
-- Điền và kích hoạt hành động với 10 email.
+**Form: "Email Me!"**
+- Fill out and trigger the action for **10 different emails**.
 
-## Thiết kế framework
-- Runner: Playwright Test (TypeScript)
-- Cấu trúc: `tests/` specs, `utils/` helpers
-- `playwright.config.ts`: HTML report, video/screenshot/trace on failure
-- Dockerfile: chạy trong container
-- (Tuỳ chọn) CI: GitHub Actions
+---
 
-## Chạy bằng Docker
+## Framework Design
+- **Test Runner:** Playwright Test (TypeScript)  
+- **Structure:**  
+  - `tests/` → test specs  
+  - `utils/` → reusable helpers  
+- **Config:** `playwright.config.ts` with HTML report, video/screenshot/trace on failure  
+- **Containerization:** `Dockerfile` for running inside Docker  
+- **(Optional) CI:** GitHub Actions  
+
+---
+
+## Run with Docker
+### Build the image
 ```bash
 docker build -t ultimateqa-tests .
-# Windows PowerShell
-docker run --rm -it `
-  -v "${PWD}\playwright-report:/app/playwright-report" `
-  -v "${PWD}\test-results:/app/test-results" `
-  ultimateqa-tests
-# Windows CMD
-docker run --rm -it ^
-  -v "%cd%\playwright-report:/app/playwright-report" ^
-  -v "%cd%\test-results:/app/test-results" ^
-  ultimateqa-tests
+
 
 ##  Structure
 ui-automation-ultimateqa-playwright/

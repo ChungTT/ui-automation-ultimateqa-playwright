@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2020",                 // biên dịch ra JS mới
-    "module": "commonjs",               // dùng cho Node.js
-    "strict": true,                     // bật strict mode
-    "esModuleInterop": true,            // hỗ trợ import default
-    "skipLibCheck": true,               // bỏ qua check .d.ts
-    "forceConsistentCasingInFileNames": true,
-    "types": ["node", "playwright"],    // hỗ trợ type cho Node và Playwright
-    "outDir": "dist"                    // output sau khi build
+    "target": "ES2020",                 // Compile to modern JavaScript (ES2020)
+    "module": "commonjs",               // Module system for Node.js
+    "strict": true,                     // Enable all strict type-checking options
+    "esModuleInterop": true,            // Allow default imports from CommonJS modules
+    "skipLibCheck": true,               // Skip type checking of declaration files (.d.ts)
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+    "types": ["node", "playwright"],    // Add type definitions for Node.js and Playwright
+    "outDir": "dist"                    // Output directory for compiled JavaScript
   },
   "include": ["tests", "utils", "playwright.config.ts"]
 }

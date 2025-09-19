@@ -2,7 +2,7 @@ export const PREPOSITIONS = new Set([
   'in','on','at','for','of','to','a','an','the','and','or','but','with','by','from','as','over','under','into','onto','off','up','down','about','after','before','between','without'
 ]);
 
-/** Kiểm tra Title Case; cho phép giới từ/冠詞 viết thường trừ từ đầu/cuối */
+/** Check Title Case; allow prepositions are lowercase */
 export function isTitleCaseWithPrepositions(title: string): boolean {
   const words = title.trim().split(/\s+/);
   if (words.length === 0) return false;

@@ -19,7 +19,7 @@ test.describe('Email me form', () => {
       if (await emailMe.first().count()) {
         const href = await emailMe.first().getAttribute('href');
         if (href && href.startsWith('mailto:')) {
-          expect(href).toContain('@'); // xác nhận mailto hợp lệ
+          expect(href).toContain('@'); // Verify email is Valid
         } else {
           await emailMe.first().click();
         }

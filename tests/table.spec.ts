@@ -10,7 +10,7 @@ test.describe('HTML Table with no id validations', () => {
   });
 
   test('titles are Title Case (prepositions lowercase)', async ({ page }) => {
-    const targetTable = page.getByRole('table').nth(1); // bảng "no id" là cái thứ 2
+    const targetTable = page.getByRole('table').nth(1); // the second table is "no id" table
     const rows = targetTable.getByRole('row');
     const rowCount = await rows.count();
     for (let i = 0; i < rowCount; i++) {
