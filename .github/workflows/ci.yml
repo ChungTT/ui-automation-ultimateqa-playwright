@@ -1,0 +1,54 @@
+name: ui-tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Cài deps dự án
+      - name: Install dependencies
+        run: npm ci
+
+      # Cài Playwright browsers + system deps (nhanh & chuẩn)
+      - name: Install Playwright Browsers
+        uses: microsoft/playwright-github-action@v1
+
+      # Chạy test
+      - name: Run Playwright tests
+        run: npm test
+
+      # Luôn upload HTML report (kể cả khi fail)
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+
+      # Upload video/screenshot/trace
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            test-results
+            **/*.zip
+          retention-days: 7
