@@ -9,9 +9,8 @@ test.describe("Profile API", () => {
     const newProfile = {
       username: `user_${Date.now()}`,
       dateOfBirth: new Date().toISOString(),
-      gender: "MALE",                  // có thể bỏ hoặc để null nếu muốn
-      subscribedMarketing: true,       // có thể bỏ hoặc để null nếu muốn
-      // hasSetupPreference: null,     // tuỳ chọn
+      gender: "MALE",                  
+      subscribedMarketing: true,       
     };
 
     // POST
@@ -56,10 +55,10 @@ test.describe("Profile API", () => {
       throw new Error(`GET did not return JSON. Body=${getText}`);
     }
 
-    // Validate theo schema GET (giống schema POST bạn gửi)
+    // Validate theo schema GET 
     validateWithSchema(GET_SCHEMA, profileJson);
 
-    // Sanity checks (tuỳ chọn theo nghiệp vụ của bạn)
+    // Sanity checks 
     expect(profileJson.userId).toBe(userId);
     expect(profileJson.username).toBe(newProfile.username);
     expect(profileJson.dateOfBirth).toBe(newProfile.dateOfBirth);
@@ -67,11 +66,9 @@ test.describe("Profile API", () => {
       expect(profileJson.gender).toBe(newProfile.gender);
     if (newProfile.subscribedMarketing !== undefined)
       expect(profileJson.subscribedMarketing).toBe(true);
-    // hasSetupPreference là optional, có thể undefined hoặc null nên không assert cứng
   });
 
   test("Fail when missing required fields", async ({ request }) => {
-    // thiếu username & dateOfBirth -> 400
     const badProfile = { gender: "MALE" };
     const res = await request.post("/v1/profile", { data: badProfile });
     const text = await res.text();

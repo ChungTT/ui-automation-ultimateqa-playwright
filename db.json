@@ -43,6 +43,13 @@
       "gender": "MALE",
       "subscribedMarketing": true,
       "id": 6
+    },
+    {
+      "username": "user_1758464771386",
+      "dateOfBirth": "2025-09-21T14:26:11.386Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "id": 7
     }
   ]
 }
