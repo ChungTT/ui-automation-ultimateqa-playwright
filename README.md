@@ -29,19 +29,17 @@ Target page: [Simple HTML Elements for Automation](https://ultimateqa.com/simple
 ```bash
 docker build -t ultimateqa-tests .
 
-
 ##  Structure
+// Add UI + API
 ui-automation-ultimateqa-playwright/
 │
-├─ Dockerfile
-├─ .dockerignore
+├─ tests/
+│   ├─ ui/              # UI test (table, email form…)
+│   └─ api/             # API test (profile)
+│
+├─ utils/               # helpers (titleCase.ts, data.ts…)
+├─ schemas/             # json schema để validate API response
+├─ playwright.config.ts # config 
 ├─ package.json
-├─ tsconfig.json
-├─ playwright.config.ts
-│
-├─ utils/
-│   └─ titleCase.ts
-│
-└─ tests/
-    ├─ table.spec.ts
-    └─ email.spec.ts
+├─ Dockerfile
+└─ .github/workflows/ci.yml

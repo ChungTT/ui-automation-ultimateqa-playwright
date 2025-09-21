@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { isTitleCaseWithPrepositions, parseMoney } from '../utils/titleCase';
+import { isTitleCaseWithPrepositions, parseMoney } from '../../utils/titleCase';
 
 const PAGE = '/simple-html-elements-for-automation/';
 

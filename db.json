@@ -1,0 +1,48 @@
+{
+  "profile": [
+    {
+      "id": 1,
+      "username": "user1",
+      "dateOfBirth": "1993-02-22T00:00:00Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "hasSetupPreference": true
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "dateOfBirth": "2000-05-15T00:00:00Z",
+      "gender": "FEMALE",
+      "subscribedMarketing": false,
+      "hasSetupPreference": false
+    },
+    {
+      "username": "user_1758381685098",
+      "dateOfBirth": "2025-09-20T15:21:25.098Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "id": 3
+    },
+    {
+      "username": "user_1758382733451",
+      "dateOfBirth": "2025-09-20T15:38:53.451Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "id": 4
+    },
+    {
+      "username": "user_1758383537835",
+      "dateOfBirth": "2025-09-20T15:52:17.835Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "id": 5
+    },
+    {
+      "username": "user_1758383776663",
+      "dateOfBirth": "2025-09-20T15:56:16.663Z",
+      "gender": "MALE",
+      "subscribedMarketing": true,
+      "id": 6
+    }
+  ]
+}
